@@ -1,4 +1,3 @@
-
 import {DataTypes} from "sequelize";
 
 export const createMaReportCashPlanningLibModel = async (sequelize) => {
@@ -10,6 +9,12 @@ export const createMaReportCashPlanningLibModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
+            ra: {
+                type: DataTypes.BOOLEAN,
+            },
+            unit: {
+                type: DataTypes.STRING,
+            },
             refercode: {
                 type: DataTypes.STRING,
             },
@@ -17,12 +22,6 @@ export const createMaReportCashPlanningLibModel = async (sequelize) => {
                 type: DataTypes.STRING,
             },
             note: {
-                type: DataTypes.STRING,
-            },
-            ra: {
-                type: DataTypes.BOOLEAN,
-            },
-            unit : {
                 type: DataTypes.STRING,
             },
             t1_thuchien: {
@@ -138,7 +137,7 @@ export const createMaReportCashPlanningLibModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: "ma_report_cash_planning_lib",
             timestamps: false,
         }

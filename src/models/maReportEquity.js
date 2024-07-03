@@ -25,21 +25,21 @@ export const createMaReportEquityModel = async (sequelize) => {
                 type:DataTypes.STRING,
             },
             slcp: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.DECIMAL,
             },
             von_dieu_le: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.DECIMAL,
 
             },
             thang_du :{
-                type : DataTypes.INTEGER,
+                type : DataTypes.DECIMAL,
             } ,
             show: {
                 type: DataTypes.BOOLEAN,
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:'ma_report_equity',
             timestamps: false,
         }

@@ -9,6 +9,12 @@ export const createMaReportCashPlanningAuModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
+            ra: {
+                type: DataTypes.BOOLEAN,
+            },
+            unit : {
+                type: DataTypes.STRING,
+            },
             refercode: {
                 type: DataTypes.STRING,
             },
@@ -16,12 +22,6 @@ export const createMaReportCashPlanningAuModel = async (sequelize) => {
                 type: DataTypes.STRING,
             },
             note: {
-                type: DataTypes.STRING,
-            },
-            ra: {
-                type: DataTypes.BOOLEAN,
-            },
-            unit : {
                 type: DataTypes.STRING,
             },
             t1_thuchien: {
@@ -137,7 +137,7 @@ export const createMaReportCashPlanningAuModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: "ma_report_cash_planning_au",
             timestamps: false,
         }

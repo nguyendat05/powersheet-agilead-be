@@ -59,7 +59,7 @@ export const createMaReportPlAaaModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:'ma_report_pl_aaa',
             timestamps: false,
         }

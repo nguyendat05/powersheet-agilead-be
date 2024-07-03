@@ -9,8 +9,8 @@ export const createMaReportWcAllModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            refercode: {
-                type: DataTypes.STRING,
+            ra : {
+              type : DataTypes.BOOLEAN
             },
             header: {
                 type: DataTypes.STRING,
@@ -19,26 +19,26 @@ export const createMaReportWcAllModel = async (sequelize) => {
                 type: DataTypes.STRING,
             },
             AGL: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
             },
             OS: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
 
             },
             LIB: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
 
             },
             ANE: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
 
             },
             AU: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
 
             },
             AAA: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.STRING
 
             },
             show: {
@@ -46,7 +46,7 @@ export const createMaReportWcAllModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: 'ma_report_pl_wc_all',
             timestamps: false,
         }
