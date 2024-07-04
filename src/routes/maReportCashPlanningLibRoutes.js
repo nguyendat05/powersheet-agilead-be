@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {
-    createNewMaReportCashPlanningLibController,
+    createMaReportCashPlanningLibController,
     getAllMaReportCashPlanningLibController,
     hideMaReportCashPlanningLibController,
     updateMaReportCashPlanningLibController
@@ -14,7 +14,7 @@ const router = Router();
 
 router.get("/", getAllMaReportCashPlanningLibController);
 
-router.post("/", createNewMaReportCashPlanningLibController);
+router.post("/", createMaReportCashPlanningLibController);
 
 router.put("/:id", updateMaReportCashPlanningLibController);
 

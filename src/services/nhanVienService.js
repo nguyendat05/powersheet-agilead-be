@@ -1,9 +1,7 @@
 import {
-    AccountingJournal, AccountingJournalAgl, AccountingJournalAne,
-    CfrProcess,
-    LeavePhep,
+    AccountingJournalAgl,
+    AccountingJournalAne,
     NhanVien,
-    PaymentRequests,
     ReportingLine,
     TeamList
 } from "../postgres/postgres.js";

@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {
-    createNewMaReportCashPlanningAneController,
+    createMaReportCashPlanningAneController,
     getAllMaReportCashPlanningAneController,
     hideMaReportCashPlanningAneController,
     updateMaReportCashPlanningAneController
@@ -14,7 +14,7 @@ const router = Router();
 
 router.get("/", getAllMaReportCashPlanningAneController);
 
-router.post("/", createNewMaReportCashPlanningAneController);
+router.post("/", createMaReportCashPlanningAneController);
 
 router.put("/:id", updateMaReportCashPlanningAneController);
 
