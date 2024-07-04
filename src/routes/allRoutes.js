@@ -22,6 +22,11 @@ import accountingJournalAglInvoiceListAglRoutes from "./accountingJournalAglInvo
 import accountingJournalAneInvoiceListAneRoutes from "./accountingJournalAneInvoiceListAneRoutes.js";
 import accountingJournalAglContractListAglRoutes from "./accountingJournalAglContractListAglRoutes.js";
 import accountingJournalAneContractListAneRoutes from "./accountingJournalAneContractListAneRoutes.js";
+import maReportPlAaaRoutes from "./maReportPlAaaRoutes.js";
+import maReportPlAglRoutes from "./maReportPlAglRoutes.js";
+import maReportPlAneRoutes from "./maReportPlAneRoutes.js";
+import maReportPlLibRoutes from "./maReportPlLibRoutes.js";
+import maReportPlOsRoutes from "./maReportPlOsRoutes.js";
 
 export const allRouter = (app) => {
 
@@ -51,6 +56,11 @@ export const allRouter = (app) => {
     app.use("/api/accounting-journal-ane-invoice-list-ane",accountingJournalAneInvoiceListAneRoutes);
     app.use("/api/accounting-journal-agl-contract-list-agl",accountingJournalAglContractListAglRoutes);
     app.use("/api/accounting-journal-ane-contract-list-ane",accountingJournalAneContractListAneRoutes);
+    app.use("/api/ma-report-pl-aaa",maReportPlAaaRoutes);
+    app.use("/api/ma-report-pl-agl",maReportPlAglRoutes);
+    app.use("/api/ma-report-pl-ane",maReportPlAneRoutes);
+    app.use("/api/ma-report-pl-lib",maReportPlLibRoutes);
+    app.use("/api/ma-report-pl-os",maReportPlOsRoutes);
 
 
 

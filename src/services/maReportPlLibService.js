@@ -1,7 +1,8 @@
-import {AccountingJournalAgl, AccountingJournalAne, NhanVien, TeamList} from "../postgres/postgres.js";
-export const createTeamList = async (value) => {
+import { MaReportPlLib} from "../postgres/postgres.js";
+
+export const createMaReportPlLib = async (value) => {
     try {
-        const data = await TeamList.create(value)
+        const data = await MaReportPlLib.create(value)
         return {
             msg: data ? "thêm dữ liệu thành công" : "Lỗi thêm dữ liệu",
             data
@@ -15,21 +16,16 @@ export const createTeamList = async (value) => {
     }
 };
 
-export const getTeamList= async () => {
+export const getMaReportPlLib= async () => {
     try {
-        const data = await TeamList.findAll({
+        const data = await MaReportPlLib.findAll({
             order: [["id", "DESC"]],
             where: {
                 show: true
             },
-            include : [
-                {model:AccountingJournalAgl , as : 'accountingJournalAgls'},
-                {model:AccountingJournalAne , as : 'accountingJournalAnes'},
-                {model:NhanVien , as : 'nhanViens'},
-            ]
         })
         return {
-            msg: data ? 'Lấy teamList thành công' : 'Lỗi lấy teamList',
+            msg: data ? 'Lấy MaReportPlLib thành công' : 'Lỗi lấy MaReportPlLib',
             data: data
         }
     } catch (error) {
@@ -41,12 +37,12 @@ export const getTeamList= async () => {
     }
 };
 
-export const hideTeamList = async (id) => {
+export const hideMaReportPlLib = async (id) => {
     try {
-        const data = await TeamList.findOne({where: {id: id}});
+        const data = await MaReportPlLib.findOne({where: {id: id}});
         if (data) {
-            await TeamList.update({show: false}, {where: {id: id}})
-            const value = await TeamList.findOne({where: {id: data.id}});
+            await MaReportPlLib.update({show: false}, {where: {id: id}})
+            const value = await MaReportPlLib.findOne({where: {id: data.id}});
             return {
                 msg: "Đã thay dổi show = fasle thành công",
                 data: value
@@ -66,11 +62,11 @@ export const hideTeamList = async (id) => {
     }
 }
 
-export const updateTeamList = async (id, value) => {
+export const updateMaReportPlLib = async (id, value) => {
     try {
-        const data = await TeamList.findOne({where: {id: id}});
+        const data = await MaReportPlLib.findOne({where: {id: id}});
         if (data) {
-            await TeamList.update(value, {where: {id: id}})
+            await MaReportPlLib.update(value, {where: {id: id}})
             return {
                 msg: "Đã cập nhật thành công",
                 data: {...value, id}
