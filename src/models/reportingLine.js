@@ -9,7 +9,7 @@ export const createReportingLineModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit : {
+            don_vi : {
                 type : DataTypes.STRING
             },
             id_nhanvien: {
@@ -17,7 +17,7 @@ export const createReportingLineModel = async (sequelize) => {
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'nhanvien',
                     }
                 },
@@ -28,7 +28,7 @@ export const createReportingLineModel = async (sequelize) => {
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'nhanvien',
                     }
                 },
@@ -39,7 +39,7 @@ export const createReportingLineModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"reporting_line",
             timestamps: false,
         }

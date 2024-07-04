@@ -17,7 +17,7 @@ export const createDivisionListModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"division_list",
             timestamps: false,
         }

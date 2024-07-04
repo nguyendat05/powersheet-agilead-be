@@ -9,7 +9,7 @@ export const createCashAccountModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit : {
+            don_vi : {
               type : DataTypes.STRING
             },
             ma_tk_viet_tat: {
@@ -31,7 +31,7 @@ export const createCashAccountModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"cash_account",
             timestamps: false,
         }

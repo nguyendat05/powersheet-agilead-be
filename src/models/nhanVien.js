@@ -9,8 +9,11 @@ export const createNhanVienModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit: {
+            don_vi: {
                 type: DataTypes.STRING
+            },
+            code_nv : {
+                type : DataTypes.STRING
             },
             email_nv: {
                 type: DataTypes.STRING,
@@ -47,7 +50,7 @@ export const createNhanVienModel = async (sequelize) => {
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'team_list',
                     }
                 },
@@ -61,7 +64,7 @@ export const createNhanVienModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: 'nhanvien',
             timestamps: false,
         }

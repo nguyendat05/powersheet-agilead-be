@@ -9,29 +9,18 @@ export const createTeamListModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit : {
+            don_vi: {
               type : DataTypes.STRING,
             },
             team: {
                 type: DataTypes.STRING,
             },
-            id_division: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'division_list',
-                    }
-                },
-                key: 'id'
-            } ,
             show: {
                 type: DataTypes.BOOLEAN,
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"team_list",
             timestamps: false,
         }

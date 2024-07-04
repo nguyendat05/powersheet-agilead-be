@@ -9,7 +9,7 @@ export const createKmfKmnsListModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit : {
+            don_vi : {
                 type : DataTypes.STRING
             },
             khoan_muc_thu_chi: {
@@ -26,11 +26,10 @@ export const createKmfKmnsListModel = async (sequelize) => {
             },
             show: {
                 type: DataTypes.BOOLEAN,
-                allowNull: false,
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"kmf_kmns_list",
             timestamps: false,
         }

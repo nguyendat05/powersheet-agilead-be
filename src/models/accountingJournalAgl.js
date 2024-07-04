@@ -46,29 +46,6 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                 type: DataTypes.STRING
             },
 
-
-
-            duyet_journal: {
-                type: DataTypes.STRING,
-            },
-
-            thu_chi: {
-                type: DataTypes.STRING,
-            },
-            pl: {
-                type: DataTypes.STRING,
-            },
-            chu_thich: {
-                type: DataTypes.STRING,
-            },
-
-            khoa_so: {
-                type: DataTypes.BOOLEAN,
-            },
-            show: {
-                type: DataTypes.BOOLEAN,
-            },
-
             id_nhanvien: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -80,6 +57,17 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                 },
                 key: 'id'
             },
+            nha_cung_cap: {
+                type: DataTypes.STRING
+            },
+            thu_chi: {
+                type: DataTypes.STRING,
+            },
+            pl: {
+                type: DataTypes.STRING,
+            },
+
+
             id_cashaccount: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -91,6 +79,19 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                 },
                 key: 'id'
             },
+
+            nganh: {
+                type : DataTypes.STRING
+            },
+
+            san_pham : {
+                type : DataTypes.STRING
+
+            },
+            chu_thich: {
+                type: DataTypes.STRING,
+            },
+
             id_kmf_kmns_list: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -102,7 +103,9 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                 },
                 key: 'id'
             },
-
+            don_vi : {
+                type : DataTypes.STRING
+            },
             id_division: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -114,7 +117,6 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                 },
                 key: 'id'
             },
-
             id_team: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
@@ -125,6 +127,19 @@ export const createAccountingJournalAglModel = async (sequelize) => {
                     }
                 },
                 key: 'id'
+            },
+            du_an : {
+                type: DataTypes.STRING
+            },
+
+            duyet_journal: {
+                type: DataTypes.STRING,
+            },
+            khoa_so: {
+                type: DataTypes.BOOLEAN,
+            },
+            show: {
+                type: DataTypes.BOOLEAN,
             },
         },
         {

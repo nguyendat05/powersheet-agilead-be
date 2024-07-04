@@ -18,15 +18,47 @@ export const createAccountingJournalAneModel = async (sequelize) => {
             so_tien: {
                 type: DataTypes.INTEGER,
             },
+            id_tk_no: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                references: {
+                    model: {
+                        schema: 'agilead',
+                        tableName: 'vas_account_list',
+                    }
+                },
+                key: 'id'
+            },
 
-            show: {
-                type: DataTypes.BOOLEAN,
+            id_tk_co: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                references: {
+                    model: {
+                        schema: 'agilead',
+                        tableName: 'vas_account_list',
+                    }
+                },
+                key: 'id'
             },
-            duyet_journal: {
-                type: DataTypes.STRING,
+
+            khach_hang: {
+                type: DataTypes.STRING
             },
-            khoa_so: {
-                type: DataTypes.BOOLEAN,
+
+            id_nhanvien: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
+                references: {
+                    model: {
+                        schema: 'agilead',
+                        tableName: 'nhanvien',
+                    }
+                },
+                key: 'id'
+            },
+            nha_cung_cap: {
+                type: DataTypes.STRING
             },
             thu_chi: {
                 type: DataTypes.STRING,
@@ -35,85 +67,29 @@ export const createAccountingJournalAneModel = async (sequelize) => {
                 type: DataTypes.STRING,
             },
 
-            id_tk_no: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'vas_account_list',
-                    }
-                },
-                key: 'id'
-            },
-            chu_thich: {
-                type: DataTypes.STRING,
-            },
-            id_tk_co: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'vas_account_list',
-                    }
-                },
-                key: 'id'
-            },
-            id_khach_hang: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'client_manager',
-                    }
-                },
-                key: 'id'
-            },
-            id_nhanvien: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'nhanvien',
-                    }
-                },
-                key: 'id'
-            },
-            id_supplier: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'supplier_list',
-                    }
-                },
-                key: 'id'
-            },
+
             id_cashaccount: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'cash_account',
                     }
                 },
                 key: 'id'
             },
-            id_industry: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'industry_list',
-                    }
-                },
-                key: 'id'
+
+            nganh: {
+                type : DataTypes.STRING
+            },
+
+            san_pham : {
+                type : DataTypes.STRING
+
+            },
+            chu_thich: {
+                type: DataTypes.STRING,
             },
 
             id_kmf_kmns_list: {
@@ -121,18 +97,21 @@ export const createAccountingJournalAneModel = async (sequelize) => {
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'kmf_kmns_list',
                     }
                 },
                 key: 'id'
+            },
+            don_vi : {
+                type : DataTypes.STRING
             },
             id_division: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'division_list',
                     }
                 },
@@ -143,26 +122,28 @@ export const createAccountingJournalAneModel = async (sequelize) => {
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'team_list',
                     }
                 },
                 key: 'id'
             },
-            id_project: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'project_list',
-                    }
-                },
-                key: 'id'
+            du_an : {
+                type: DataTypes.STRING
+            },
+
+            duyet_journal: {
+                type: DataTypes.STRING,
+            },
+            khoa_so: {
+                type: DataTypes.BOOLEAN,
+            },
+            show: {
+                type: DataTypes.BOOLEAN,
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: "accounting_journal_ane",
             timestamps: false,
         }

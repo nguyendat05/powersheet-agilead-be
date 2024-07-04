@@ -1,8 +1,8 @@
 import {DataTypes} from "sequelize";
 
 export const createMaReportWcAllModel = async (sequelize) => {
-    const MaReportPlWcAll = sequelize.define(
-        "ma_report_pl_wc_all",
+    const MaReportWcAll = sequelize.define(
+        "ma_report_wc_all",
         {
             id: {
                 type: DataTypes.INTEGER,
@@ -47,9 +47,9 @@ export const createMaReportWcAllModel = async (sequelize) => {
         },
         {
             schema: "agilead",
-            tableName: 'ma_report_pl_wc_all',
+            tableName: 'ma_report_wc_all',
             timestamps: false,
         }
     );
-    return MaReportPlWcAll;
+    return MaReportWcAll;
 };

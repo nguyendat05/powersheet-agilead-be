@@ -9,7 +9,7 @@ export const createVasAccountListModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            unit : {
+            don_vi : {
               type : DataTypes.STRING
             },
             ma_tai_khoan: {
@@ -35,7 +35,7 @@ export const createVasAccountListModel = async (sequelize) => {
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName: "vas_account_list",
             timestamps: false,
         }

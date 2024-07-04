@@ -17,7 +17,7 @@ export const createAccountingJournalAneInvoiceListAneModel = async (sequelize) =
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'invoice_list_ane',
                     }
                 },
@@ -28,7 +28,7 @@ export const createAccountingJournalAneInvoiceListAneModel = async (sequelize) =
                 allowNull: true,
                 references: {
                     model: {
-                        schema: 'aaa',
+                        schema: 'agilead',
                         tableName: 'accounting_journal_ane',
                     }
                 },
@@ -36,7 +36,7 @@ export const createAccountingJournalAneInvoiceListAneModel = async (sequelize) =
             },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"accountingJournalAne_invoiceListAne",
             timestamps: false,
         }

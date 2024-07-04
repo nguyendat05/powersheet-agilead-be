@@ -9,6 +9,9 @@ export const createInvoiceListAglModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
+            don_vi : {
+              type : DataTypes.STRING
+            },
             mua_ban: {
                 type: DataTypes.STRING,
             },
@@ -21,6 +24,9 @@ export const createInvoiceListAglModel = async (sequelize) => {
             ngay_hoa_don: {
                 type: DataTypes.DATE,
             },
+            ten_khack_hang : {
+              type : DataTypes.STRING
+            },
             mst_khach_hang: {
                 type: DataTypes.INTEGER,
             },
@@ -29,6 +35,12 @@ export const createInvoiceListAglModel = async (sequelize) => {
             },
             noi_dung_hoa_don: {
                 type: DataTypes.STRING,
+            },
+            tien_chua_vat : {
+              type : DataTypes.DECIMAL
+            },
+            tien_gom_vat : {
+              type : DataTypes.DECIMAL
             },
             dinh_kem: {
                 type: DataTypes.STRING,
@@ -39,20 +51,9 @@ export const createInvoiceListAglModel = async (sequelize) => {
             show: {
                 type: DataTypes.BOOLEAN,
             },
-            id_khach_hang: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'client_manager',
-                    }
-                },
-                key: 'id'
-            },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"invoice_list_agl",
             timestamps: false,
         }

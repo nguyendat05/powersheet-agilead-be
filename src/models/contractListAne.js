@@ -9,6 +9,9 @@ export const createContractListAneModel = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
+            don_vi : {
+                type : DataTypes.STRING
+            },
             mua_ban: {
                 type: DataTypes.STRING,
             },
@@ -24,12 +27,26 @@ export const createContractListAneModel = async (sequelize) => {
             ket_thuc_du_kien: {
                 type: DataTypes.DATE,
             },
-
-            gia_tri_gom_vat: {
+            khach_hang: {
                 type: DataTypes.INTEGER,
             },
+            san_pham : {
+                type : DataTypes.STRING
+            },
+            so_luong : {
+                type : DataTypes.DECIMAL
+            },
+            don_gia_gom_vat : {
+                type : DataTypes.DECIMAL
+            },
+            don_gia_khong_vat : {
+                type : DataTypes.DECIMAL
+            },
+            gia_tri_gom_vat: {
+                type: DataTypes.DECIMAL,
+            },
             gia_tri_khong_vat: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.DECIMAL,
             },
             dinh_kem: {
                 type: DataTypes.STRING,
@@ -37,20 +54,9 @@ export const createContractListAneModel = async (sequelize) => {
             show : {
                 type: DataTypes.BOOLEAN,
             },
-            id_khach_hang: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-                references: {
-                    model: {
-                        schema: 'aaa',
-                        tableName: 'client_manager',
-                    }
-                },
-                key: 'id'
-            },
         },
         {
-            schema: "aaa",
+            schema: "agilead",
             tableName:"contract_list_ane",
             timestamps: false,
         }
