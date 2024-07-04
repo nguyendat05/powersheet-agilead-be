@@ -12,7 +12,7 @@ export const createAccountingJournalAglInvoiceListAglModel = async (sequelize) =
             show: {
                 type: DataTypes.BOOLEAN,
             },
-            id_invoice: {
+            id_invoice_agl: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {
@@ -23,7 +23,7 @@ export const createAccountingJournalAglInvoiceListAglModel = async (sequelize) =
                 },
                 key: 'id'
             },
-            id_accounting_journal: {
+            id_accounting_journal_agl: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
                 references: {

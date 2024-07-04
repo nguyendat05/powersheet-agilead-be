@@ -57,6 +57,7 @@ export const createAccountingJournalAneModel = async (sequelize) => {
                 },
                 key: 'id'
             },
+
             nha_cung_cap: {
                 type: DataTypes.STRING
             },
@@ -106,6 +107,7 @@ export const createAccountingJournalAneModel = async (sequelize) => {
             don_vi : {
                 type : DataTypes.STRING
             },
+
             id_division: {
                 type: DataTypes.INTEGER,
                 allowNull: true,

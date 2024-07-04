@@ -148,7 +148,6 @@ const connection = async () => {
 
  //// Quan hệ AccountingJournalAgl với các đối tượng khác
 
-
         // Quan hệ giữa 2 bảng AccountingJournalAgl và ContractListAgl
         ContractListAgl.hasMany(AccountingJournalAglContractListAgl, {foreignKey: 'id_contract_agl', as: "accountingJournalAglContractListAgls",});
         AccountingJournalAglContractListAgl.belongsTo(ContractListAgl, {foreignKey: 'id_contract_agl', as: "contractListAgl",})
@@ -175,7 +174,6 @@ const connection = async () => {
         AccountingJournalAgl.belongsTo(KmfKmnsList, {foreignKey: 'id_kmf_kmns_list', as: 'kmfKmmsList',})
 
 
-
         // Quan hệ giữa AccountingJournal và DivisionList
         DivisionList.hasMany(AccountingJournalAgl, {foreignKey: 'id_division', as: 'accountingJournalAgls',})
         AccountingJournalAgl.belongsTo(DivisionList, {foreignKey: 'id_division', as: 'divisionList',})
@@ -189,7 +187,7 @@ const connection = async () => {
         AccountingJournalAgl.belongsTo(CashAccount, {foreignKey: 'id_cashaccount', as: 'cashAccount',})
 
 
-        // Quan hệ giữa VasAccountList với AccountJournalAgl
+        // Quan hệ giữa AccountJournalAgl và VasAccountList
         VasAccountList.hasMany(AccountingJournalAgl, {foreignKey: 'id_tk_no', as: 'accountJournalAglNos',});
         AccountingJournalAgl.belongsTo(VasAccountList, {foreignKey: 'id_tk_no', as: 'vasAccountListNo',});
 
@@ -238,7 +236,7 @@ const connection = async () => {
         AccountingJournalAne.belongsTo(CashAccount, {foreignKey: 'id_cashaccount', as: 'cashAccount',})
 
 
-        // Quan hệ giữa VasAccountList với AccountJournalAne
+        // Quan hệ giữa AccountJournalAne với  VasAccountList
         VasAccountList.hasMany(AccountingJournalAne, {foreignKey: 'id_tk_no', as: 'accountJournalAneNos',});
         AccountingJournalAne.belongsTo(VasAccountList, {foreignKey: 'id_tk_no', as: 'vasAccountListNo',});
 
@@ -251,15 +249,15 @@ const connection = async () => {
   ///// Các quan hệ khác không liên quan đến AccountJournalAgl và AccountJournalAne
 
         // Quan hệ giữa Nhanvien và ReportingLine
-        NhanVien.hasMany(ReportingLine, {foreignKey: 'id_nhanvien', as: "reportings",});
-        ReportingLine.belongsTo(NhanVien, {foreignKey: 'id_nhanvien', as: 'nhanvien',});
+        NhanVien.hasMany(ReportingLine, {foreignKey: 'id_nhanvien', as: "reportingLines",});
+        ReportingLine.belongsTo(NhanVien, {foreignKey: 'id_nhanvien', as: 'nhanVien',});
 
-        NhanVien.hasMany(ReportingLine, {foreignKey: 'id_quan_ly_truc_tiep', as: "reportingQuanLyTrucTieps",});
-        ReportingLine.belongsTo(NhanVien, {foreignKey: 'id_quan_ly_truc_tiep', as: 'nhanvienQuanLyTrucTiep',});
+        NhanVien.hasMany(ReportingLine, {foreignKey: 'id_quan_ly_truc_tiep', as: "reportingLineQuanLyTrucTieps",});
+        ReportingLine.belongsTo(NhanVien, {foreignKey: 'id_quan_ly_truc_tiep', as: 'nhanVienQuanLyTrucTiep',});
 
 
         // Quan hệ giữa Nhanvien và TeamList
-        TeamList.hasMany(NhanVien, {foreignKey: 'id_team', as: "nhanviens",});
+        TeamList.hasMany(NhanVien, {foreignKey: 'id_team', as: "nhanViens",});
         NhanVien.belongsTo(TeamList, {foreignKey: 'id_team', as: 'teamList',});
 
 
