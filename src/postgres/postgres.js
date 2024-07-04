@@ -207,7 +207,7 @@ const connection = async () => {
 
         // Quan hệ giữa 2 bảng AccountingJournalAne và InvoiceListAne
         InvoiceListAne.hasMany(AccountingJournalAneInvoiceListAne, {foreignKey: 'id_invoice_ane', as: "accountingJournalAneInvoiceListAnes",});
-        AccountingJournalAglInvoiceListAgl.belongsTo(InvoiceListAgl, {foreignKey: 'id_invoice_ane', as: "invoiceListAne",});
+        AccountingJournalAneInvoiceListAne.belongsTo(InvoiceListAne, {foreignKey: 'id_invoice_ane', as: "invoiceListAne",});
 
         AccountingJournalAne.hasMany(AccountingJournalAneInvoiceListAne, {foreignKey: 'id_accounting_journal_ane', as: "accountingJournalAneInvoiceListAnes",})
         AccountingJournalAneInvoiceListAne.belongsTo(AccountingJournalAne, {foreignKey: 'id_accounting_journal_ane', as: "accountingJournalAne",})
@@ -248,7 +248,7 @@ const connection = async () => {
 
   ///// Các quan hệ khác không liên quan đến AccountJournalAgl và AccountJournalAne
 
-        // Quan hệ giữa Nhanvien và ReportingLine
+        // Quan hệ giữa NhanVien và ReportingLine
         NhanVien.hasMany(ReportingLine, {foreignKey: 'id_nhanvien', as: "reportingLines",});
         ReportingLine.belongsTo(NhanVien, {foreignKey: 'id_nhanvien', as: 'nhanVien',});
 

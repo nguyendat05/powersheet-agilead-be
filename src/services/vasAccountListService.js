@@ -1,4 +1,4 @@
-import {AccountingJournal, VasAccountList} from "../postgres/postgres.js";
+import {AccountingJournalAgl, AccountingJournalAne, VasAccountList} from "../postgres/postgres.js";
 
 export const createVasAccountList= async (value) => {
     try {
@@ -20,8 +20,10 @@ export const getVasAccountList= async () => {
     try {
         const data = await VasAccountList.findAll({
             include:[
-                {model:AccountingJournal,as :"accountJournalNos" },
-                {model:AccountingJournal,as :"accountJournalCos" },
+                {model:AccountingJournalAgl,as :"accountJournalAglNos" },
+                {model:AccountingJournalAgl,as :"accountJournalAglCos" },
+                {model:AccountingJournalAne,as :"accountJournalAneNos" },
+                {model:AccountingJournalAne,as :"accountJournalAneCos" },
             ]
         })
         return {

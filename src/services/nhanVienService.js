@@ -1,5 +1,5 @@
 import {
-    AccountingJournal,
+    AccountingJournal, AccountingJournalAgl, AccountingJournalAne,
     CfrProcess,
     LeavePhep,
     NhanVien,
@@ -32,18 +32,13 @@ export const getNhanVien = async () => {
                 show: true
             },
             include: [
-                {model: ReportingLine, as: 'reportings'},
-                {model: ReportingLine, as: 'reportingQuanLyTrucTieps'},
-                {model: LeavePhep, as: "leavePhepDeNghis"},
-                {model: LeavePhep, as: "leavePhepQuanLyTrucTieps"},
-                {model: AccountingJournal, as: "accountingJournals"},
+                {model: ReportingLine, as: 'reportingLines'},
+                {model: ReportingLine, as: 'reportingLineQuanLyTrucTieps'},
+                {model: AccountingJournalAgl, as: "accountingJournalAgls"},
+                {model: AccountingJournalAne, as: "accountingJournalAnes"},
                 {model: TeamList, as: "teamList"},
-                {model: CfrProcess, as: "cfrProcessDeNghis"},
-                {model: CfrProcess, as: "cfrProcesDuyets"},
-                {model: PaymentRequests, as: "paymentRequestDeNghis"},
-                {model: PaymentRequests, as: "paymentRequestKetoans"},
-                {model: PaymentRequests, as: "paymentRequestGiamDocs"},
             ],
+
         })
         return {
             msg: data ? 'Lấy nhân viên thành công' : 'Lỗi lấy nhân viên',
@@ -62,18 +57,18 @@ export const hideNhanVien = async (id) => {
     try {
         const data = await NhanVien.findOne({where: {id: id}});
         if (data) {
-            await NhanVien.update({ show: false },  {
-                where: { id: id },
+            await NhanVien.update({show: false}, {
+                where: {id: id},
             })
             const value = await NhanVien.findOne({where: {id: data.id}});
             return {
-                msg : "Đã ẩn thành công",
-                data : value
+                msg: "Đã ẩn thành công",
+                data: value
             }
         } else {
             return {
-                msg : "Không tìm thấy đối tượng phù hợp để ẩn",
-                id : id
+                msg: "Không tìm thấy đối tượng phù hợp để ẩn",
+                id: id
             }
         }
     } catch (error) {
@@ -84,18 +79,18 @@ export const hideNhanVien = async (id) => {
     }
 }
 
-export const updateNhanVien = async (id , value) => {
+export const updateNhanVien = async (id, value) => {
     try {
         const data = await NhanVien.findOne({where: {id: id}});
         if (data) {
-            await NhanVien.update( value , {where: {id: id}})
+            await NhanVien.update(value, {where: {id: id}})
             return {
-                msg : "Đã cập nhật thành công",
-                data : {...value, id}
+                msg: "Đã cập nhật thành công",
+                data: {...value, id}
             }
         } else {
             return {
-                msg : "Không tìm thấy đối tượng phù hợp để sửa"
+                msg: "Không tìm thấy đối tượng phù hợp để sửa"
             }
         }
     } catch (error) {

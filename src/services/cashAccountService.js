@@ -1,4 +1,4 @@
-import {AccountingJournal, CashAccount} from "../postgres/postgres.js";
+import {AccountingJournalAgl, AccountingJournalAne, CashAccount} from "../postgres/postgres.js";
 
 
 export const getAllCashAccount = async () => {
@@ -8,7 +8,10 @@ export const getAllCashAccount = async () => {
             where: {
                 show: true,
             },
-            include:{model : AccountingJournal , as : "accountingJournals"}
+            include:[
+                {model : AccountingJournalAne , as : "accountingJournalAnes"},
+                {model : AccountingJournalAgl , as : "accountingJournalAgls"},
+                ]
         });
 
         return{

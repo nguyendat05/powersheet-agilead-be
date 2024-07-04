@@ -1,10 +1,11 @@
-import {AccountingJournalAgl, AccountingJournalAne, NhanVien, TeamList} from "../postgres/postgres.js";
-export const createTeamList = async (value) => {
+import {AccountingJournalAgl, AccountingJournalAglInvoiceListAgl, InvoiceListAgl} from "../postgres/postgres.js";
+
+export const createAccountingJournalAglInvoiceListAgl = async (value) => {
     try {
-        const data = await TeamList.create(value)
+        const data = await AccountingJournalAglInvoiceListAgl.create(value)
         return {
             msg: data ? "thêm dữ liệu thành công" : "Lỗi thêm dữ liệu",
-            data
+            data : data
         }
     } catch (error) {
         return {
@@ -15,21 +16,20 @@ export const createTeamList = async (value) => {
     }
 };
 
-export const getTeamList= async () => {
+export const getAllAccountingJournalAglInvoiceListAgl= async () => {
     try {
-        const data = await TeamList.findAll({
+        const data = await AccountingJournalAglInvoiceListAgl.findAll({
             order: [["id", "DESC"]],
             where: {
-                show: true
+                show: true,
             },
-            include : [
-                {model:AccountingJournalAgl , as : 'accountingJournalAgls'},
-                {model:AccountingJournalAne , as : 'accountingJournalAnes'},
-                {model:NhanVien , as : 'nhanViens'},
+            include: [
+                {model : InvoiceListAgl , as : "invoiceListAgl"},
+                { model : AccountingJournalAgl , as : "accountingJournalAgl"}
             ]
         })
         return {
-            msg: data ? 'Lấy teamList thành công' : 'Lỗi lấy teamList ',
+            msg: data ? 'Lấy accountingJournalInvoiceList thành công' : 'Lỗi lấy accountingJournalInvoiceList',
             data: data
         }
     } catch (error) {
@@ -41,18 +41,17 @@ export const getTeamList= async () => {
     }
 };
 
-export const hideTeamList = async (id) => {
+export const hideAccountingJournalAglInvoiceListAgl = async (id) => {
     try {
-        const data = await TeamList.findOne({where: {id: id}});
+        const data = await AccountingJournalAglInvoiceListAgl.findOne({where: {id: id}});
         if (data) {
-            await TeamList.update({show: false}, {where: {id: id}})
-            const value = await TeamList.findOne({where: {id: data.id}});
+            await AccountingJournalAglInvoiceListAgl.update({show: false}, {where: {id: id}})
+            const value = await AccountingJournalAglInvoiceListAgl.findOne({where: {id: data.id}});
             return {
                 msg: "Đã thay dổi show = fasle thành công",
                 data: value
             }
-        }
-        else {
+        } else {
             return {
                 msg: "Không tìm thấy đối tượng phù hợp để thay đổi",
                 id: id
@@ -66,11 +65,11 @@ export const hideTeamList = async (id) => {
     }
 }
 
-export const updateTeamList = async (id, value) => {
+export const updateAccountingJournalAglInvoiceListAgl= async (id, value) => {
     try {
-        const data = await TeamList.findOne({where: {id: id}});
+        const data = await AccountingJournalAglInvoiceListAgl.findOne({where: {id: id}});
         if (data) {
-            await TeamList.update(value, {where: {id: id}})
+            await AccountingJournalAglInvoiceListAgl.update(value, {where: {id: id}})
             return {
                 msg: "Đã cập nhật thành công",
                 data: {...value, id}

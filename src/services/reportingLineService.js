@@ -25,8 +25,8 @@ export const getReportingLine = async () => {
             },
             include:
             [
-                {model: NhanVien , as:"nhanvien"},
-                {model: NhanVien , as:"nhanvienQuanLyTrucTiep"},
+                {model: NhanVien , as:"nhanVien"},
+                {model: NhanVien , as:"nhanVienQuanLyTrucTiep"},
                 ]
 
         });

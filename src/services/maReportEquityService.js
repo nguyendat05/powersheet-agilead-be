@@ -1,4 +1,4 @@
-import {MaReportCashPlanning, MaReportEquity} from "../postgres/postgres.js";
+import {MaReportEquity} from "../postgres/postgres.js";
 
 
 export const getAllMaReportEquity = async () => {

@@ -1,21 +1,21 @@
-import {AccountingJournalAgl, AccountingJournalAne, KmfKmnsList} from "../postgres/postgres.js";
+import {AccountingJournalAneContractListAne, ContractListAgl} from "../postgres/postgres.js";
 
-export const getAllKmfKmnsList = async () => {
+export const getAllContractListAgl = async () => {
 
     try {
-        let data = await KmfKmnsList.findAll({
+        let data = await ContractListAgl.findAll({
             order: [["id", "DESC"]],
             where: {
                 show: true,
             },
             include: [
-                {model: AccountingJournalAgl, as: "accountingJournalAgls"},
-                {model: AccountingJournalAne, as: "accountingJournalAnes"}
+                {model : AccountingJournalAneContractListAne , as : "accountingJournalAneContractListAnes"}
             ]
+
         });
         return {
-            msg: data ? "Thành công" : "Thất bại",
-            data: data
+            msg:  data ? "Thành công" : "Thất bại",
+            data
         }
     } catch (error) {
         return {
@@ -25,30 +25,29 @@ export const getAllKmfKmnsList = async () => {
     }
 };
 
-export const createKmfKmnsList = async (value) => {
+export const createContractListAgl = async (value) => {
     try {
-        const data = await KmfKmnsList.create(value)
+        let data = await ContractListAgl.create(value);
         return {
-            msg: data ? "Thêm dữ liệu thành công" : "Lỗi thêm dữ liệu",
-            data: data
-        }
+            msg: data ? "Thành công" : "Thất bại",
+            data : data,
+        };
     } catch (error) {
         return {
             error: error,
             msg: "Lỗi máy chủ",
-
-        }
+        };
     }
 };
 
 
-export const updateKmfKmnsList = async (id, value) => {
+export const updateContractListAgl = async (id, value) => {
     try {
-        const data = await KmfKmnsList.findOne({where: {id: id}});
+        const data = await ContractListAgl.findOne({where: {id: id}});
         if (data) {
-            await KmfKmnsList.update(value, {where: {id: id}})
+            await ContractListAgl.update(value, {where: {id: id}})
             return {
-                msg: "Đã cập nhật thành công",
+                msg: "Thành công",
                 data: {...value, id}
             }
         } else {
@@ -64,18 +63,17 @@ export const updateKmfKmnsList = async (id, value) => {
     }
 };
 
-export const hideKmfKmnsList = async (id) => {
+export const hideContractListAgl = async (id) => {
     try {
-        const data = await KmfKmnsList.findOne({where: {id: id}});
+        const data = await ContractListAgl.findOne({where: {id: id}});
         if (data) {
-            await KmfKmnsList.update({show: false}, {where: {id: id}})
-            const value = await KmfKmnsList.findOne({where: {id: data.id}});
+            await ContractListAgl.update({show: false}, {where: {id: id}})
+            const value = await ContractListAgl.findOne({where: {id: data.id}});
             return {
                 msg: "Đã thay dổi show = fasle thành công",
                 data: value
             }
-        }
-        else {
+        } else {
             return {
                 msg: "Không tìm thấy đối tượng phù hợp để thay đổi",
                 id: id

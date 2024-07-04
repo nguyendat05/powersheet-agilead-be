@@ -1,4 +1,4 @@
-import {AccountingJournal, DivisionList, TeamList} from "../postgres/postgres.js";
+import {AccountingJournalAgl, AccountingJournalAne, DivisionList, } from "../postgres/postgres.js";
 
 
 export const getAllDivisionList = async () => {
@@ -9,8 +9,8 @@ export const getAllDivisionList = async () => {
                 show: true,
             },
             include:[
-                {model: AccountingJournal , as : "accountingJournals"},
-                {model: TeamList , as : "teamLists"},
+                {model: AccountingJournalAne , as : "accountingJournalAnes"},
+                {model: AccountingJournalAgl , as : "accountingJournalAgls"},
             ]
         });
         return {
